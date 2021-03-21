@@ -8,7 +8,6 @@ from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 
 TOKEN = "{your_telegram_bot_token}"
-CHAT_ID = "{your_telegram_chat_id}"
 IBM_TOKEN = "{your_ibm_watson_key}"
 IBM_URL = "{your_ibm_watson_url}"
 IBM_VERSION = "{your_ibm_watson_version}"
@@ -175,7 +174,9 @@ def message(updater, context):
         ]
     )
 
-    bot.send_voice(chat_id=CHAT_ID, voice=open("./audio/voice_message.ogg", "rb"))
+    bot.send_voice(
+        chat_id=updater.message.chat_id, voice=open("./audio/voice_message.ogg", "rb")
+    )
 
 
 def image(updater, context):
