@@ -1,6 +1,7 @@
 import pyttsx3
 import subprocess
 from os import listdir
+from os import remove as rm
 from telegram import Bot
 from telegram.ext import Updater, CommandHandler, MessageHandler, PrefixHandler, Filters
 from ibm_watson import VisualRecognitionV3
@@ -177,6 +178,8 @@ def message(updater, context):
     bot.send_voice(
         chat_id=updater.message.chat_id, voice=open("./audio/voice_message.ogg", "rb")
     )
+    rm("./audio/voice_message.ogg")
+    rm("./audio/voice_message.wav")
 
 
 def image(updater, context):
@@ -208,6 +211,7 @@ def image(updater, context):
             name=img_recognition, percent=recognition_score
         )
     )
+    rm("./images/img.jpg")
 
 
 def run_updater():
