@@ -14,6 +14,7 @@ IBM_URL = "{your_ibm_watson_url}"
 IBM_VERSION = "{your_ibm_watson_version}"
 
 HELP = """
+Hello!
 What can I do? Let's take a look.
 
 /start - bot greeting,
